@@ -1,45 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-   <div class="row">
-      <div class="col s4">
-                <div class="card">
-                    <div class="card-image">
-                        <a href="/"><img src="/" alt=""></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Testing</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="/">View listing: Test Price</a>
-                    </div>
-                </div>
-            </div>
-        <div class="col s4">
-                <div class="card">
-                    <div class="card-image">
-                        <a href="/"><img src="https://media.wired.co.uk/photos/606d9caadbc4c121710a3ea2/master/pass/wired-uk-puppyboom.jpg" alt=""></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Testing</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="/">View listing: Test Price</a>
+<h2 style="text-align:center">{{ search|title }}</h2>
+<div class="row">
+       {% for posts in live_posting %}
+          <div class="col s4">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="{{ posts.1 }}"><img src="{{ posts.3 }}" alt=""></a>
+                        </div>
+                        <div class="card-content">
+                            <p>{{ posts.0 }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{{ posts.1 }}">Valued at {{ posts.2 }}</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <div class="col s4">
-                <div class="card">
-                    <div class="card-image">
-                        <a href="/"><img src="https://media.wired.co.uk/photos/606d9caadbc4c121710a3ea2/master/pass/wired-uk-puppyboom.jpg" alt=""></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Testing</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="/">View listing: Test Price</a>
-                    </div>
-                </div>
-            </div>
-   </div>
+       {% endfor %}
+</div>
+
+
 {% endblock content %}
